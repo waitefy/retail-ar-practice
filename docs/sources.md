@@ -8,7 +8,7 @@
 
 4. Recalde D., Jai T. C., Jones R. P. “I can find the right product with AR!” The mediation effects of shopper engagement on intent to purchase beauty products // Journal of Retailing and Consumer Services. — 2024. — Vol. 78. — Article 103764. — DOI: 10.1016/j.jretconser.2024.103764.
 
-5. Chakraborty D., Polisetty A., G S., Rana N. P., Khorana S. Unlocking the potential of AI: Enhancing consumer engagement in the beauty and cosmetic product purchases // Journal of Retailing and Consumer Services. — 2024. — Vol. 79. — Article 103842. — DOI: 10.1016/j.jretconser.2024.103842.
+5. Rumokoy F. S., Frank B. Retail value creation through augmented reality: The role of task-technology fit, consumer knowledge, and personality // Journal of Retailing and Consumer Services. — 2025. — Vol. 84. — Article 104173. — DOI: 10.1016/j.jretconser.2024.104173.
 
 6. Lavoye V., Kumar H. Understanding how augmented reality's immersive experience and privacy concerns impact consumer responses: a cognitive perspective // Journal of Retailing and Consumer Services. — 2025. — Vol. 87. — Article 104425. — DOI: 10.1016/j.jretconser.2025.104425.
 
