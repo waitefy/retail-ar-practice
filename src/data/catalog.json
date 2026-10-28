@@ -1,0 +1,107 @@
+{
+  "products": [
+    {
+      "product_id": "P001",
+      "name": "Учебная помада «Мягкий цвет»",
+      "description": "Демонстрационный товар для сравнения оттенков и предварительного выбора варианта с приближённым цветовым наложением.",
+      "product_url": "https://retail-ar.example/products/soft-color"
+    }
+  ],
+  "variants": [
+    {
+      "variant_id": "V001",
+      "product_id": "P001",
+      "shade_id": "S001",
+      "sku": "DEMO-001",
+      "net_weight_g": 3.5
+    },
+    {
+      "variant_id": "V002",
+      "product_id": "P001",
+      "shade_id": "S002",
+      "sku": "DEMO-002",
+      "net_weight_g": 3.5
+    },
+    {
+      "variant_id": "V003",
+      "product_id": "P001",
+      "shade_id": "S001",
+      "sku": "DEMO-003",
+      "net_weight_g": 1.5
+    }
+  ],
+  "shades": [
+    {
+      "shade_id": "S001",
+      "name": "Розовый",
+      "red": 190,
+      "green": 90,
+      "blue": 120
+    },
+    {
+      "shade_id": "S002",
+      "name": "Ягодный",
+      "red": 135,
+      "green": 45,
+      "blue": 85
+    }
+  ],
+  "materials": [
+    {
+      "material_id": "M001",
+      "kind": "palette",
+      "title": "Общая палитра двух оттенков",
+      "url": "https://retail-ar.example/materials/soft-color-palette.png"
+    },
+    {
+      "material_id": "M002",
+      "kind": "photo",
+      "title": "Упаковка полноразмерной помады без обозначения оттенка",
+      "url": "https://retail-ar.example/materials/soft-color-full-size.png"
+    },
+    {
+      "material_id": "M003",
+      "kind": "photo",
+      "title": "Упаковка мини-версии помады",
+      "url": "https://retail-ar.example/materials/soft-color-mini.png"
+    }
+  ],
+  "variant_materials": [
+    {
+      "variant_id": "V001",
+      "material_id": "M002",
+      "display_role": "packaging",
+      "display_order": 1
+    },
+    {
+      "variant_id": "V001",
+      "material_id": "M001",
+      "display_role": "shade_comparison",
+      "display_order": 2
+    },
+    {
+      "variant_id": "V002",
+      "material_id": "M002",
+      "display_role": "packaging",
+      "display_order": 1
+    },
+    {
+      "variant_id": "V002",
+      "material_id": "M001",
+      "display_role": "shade_comparison",
+      "display_order": 2
+    },
+    {
+      "variant_id": "V003",
+      "material_id": "M003",
+      "display_role": "packaging",
+      "display_order": 1
+    },
+    {
+      "variant_id": "V003",
+      "material_id": "M001",
+      "display_role": "shade_comparison",
+      "display_order": 2
+    }
+  ]
+}
