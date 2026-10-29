@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="app.diagrams.net" version="31.7.0">
+  <diagram id="logical" name="Логическая модель">
+    <mxGraphModel dx="1320" dy="1050" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="960" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Логическая модель данных каталога" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="100" y="30" width="1100" height="40"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Crow’s Foot. PK — первичный ключ; FK — внешний ключ; UQ — уникальность." style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="90" width="1180" height="40"/>
+        </mxCell>
+        <mxCell id="products" value="" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="180" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="products_title" value="Товар / products" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#eeeeee;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="180" width="300" height="50"/>
+        </mxCell>
+        <mxCell id="products_attrs" value="PK  product_id&#10;name&#10;description&#10;product_url" style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;spacingLeft=8;rounded=0;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="70" y="240" width="280" height="150"/>
+        </mxCell>
+        <mxCell id="variants" value="" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="180" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="variants_title" value="Вариант товара / variants" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#eeeeee;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="180" width="300" height="50"/>
+        </mxCell>
+        <mxCell id="variants_attrs" value="PK  variant_id&#10;FK  product_id&#10;FK  shade_id&#10;UQ  sku&#10;net_weight_g" style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;spacingLeft=8;rounded=0;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="510" y="240" width="280" height="150"/>
+        </mxCell>
+        <mxCell id="shades" value="" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="180" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="shades_title" value="Оттенок / shades" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#eeeeee;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="180" width="300" height="50"/>
+        </mxCell>
+        <mxCell id="shades_attrs" value="PK  shade_id&#10;name&#10;red&#10;green&#10;blue" style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;spacingLeft=8;rounded=0;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="950" y="240" width="280" height="150"/>
+        </mxCell>
+        <mxCell id="materials" value="" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="560" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="materials_title" value="Материал / materials" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#eeeeee;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="560" width="300" height="50"/>
+        </mxCell>
+        <mxCell id="materials_attrs" value="PK  material_id&#10;kind&#10;title&#10;url" style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;spacingLeft=8;rounded=0;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="70" y="620" width="280" height="150"/>
+        </mxCell>
+        <mxCell id="variant_materials" value="" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="560" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="variant_materials_title" value="Материал варианта / variant_materials" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=#000000;fillColor=#eeeeee;strokeWidth=1;spacing=4;fontStyle=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="560" width="300" height="50"/>
+        </mxCell>
+        <mxCell id="variant_materials_attrs" value="PK, FK  variant_id&#10;PK, FK  material_id&#10;display_role&#10;display_order" style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;spacingLeft=8;rounded=0;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="510" y="620" width="280" height="150"/>
+        </mxCell>
+        <mxCell id="product_variants" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=18;fontFamily=Arial;fontSize=14;" edge="1" parent="1" source="products" target="variants">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="shade_variants" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;strokeColor=#000000;strokeWidth=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=18;fontFamily=Arial;fontSize=14;" edge="1" parent="1" source="shades" target="variants">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="variant_links" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;strokeColor=#000000;strokeWidth=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=18;fontFamily=Arial;fontSize=14;" edge="1" parent="1" source="variants" target="variant_materials">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="material_links" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=0;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;endArrow=ERzeroToMany;startFill=0;endFill=0;startSize=16;endSize=18;fontFamily=Arial;fontSize=14;" edge="1" parent="1" source="materials" target="variant_materials">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="product_relation" value="1 → 0..N" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="370" y="240" width="120" height="30"/>
+        </mxCell>
+        <mxCell id="shade_relation" value="0..N ← 1" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="810" y="240" width="120" height="30"/>
+        </mxCell>
+        <mxCell id="variant_relation" value="1 → 0..N" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="660" y="460" width="140" height="30"/>
+        </mxCell>
+        <mxCell id="material_relation" value="1 → 0..N" style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="370" y="620" width="120" height="30"/>
+        </mxCell>
+        <mxCell id="constraints" value="Ограничения связи&#10;PK = (variant_id, material_id)&#10;UQ = (variant_id, display_order)&#10;display_order &gt; 0&#10;&#10;M:N «Вариант — Материал»&#10;разрешена через&#10;«Материал варианта»." style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="940" y="560" width="300" height="220"/>
+        </mxCell>
+        <mxCell id="legend" value="Каждая дочерняя запись связана ровно с одним родителем.&#10;У родителя допустимо 0..N дочерних записей. Материалы карточки необязательны." style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="100" y="840" width="1100" height="60"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
