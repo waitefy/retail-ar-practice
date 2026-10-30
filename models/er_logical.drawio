@@ -83,7 +83,7 @@
         <mxCell id="constraints" value="Ограничения связи&#10;PK = (variant_id, material_id)&#10;UQ = (variant_id, display_order)&#10;display_order &gt; 0&#10;&#10;M:N «Вариант — Материал»&#10;разрешена через&#10;«Материал варианта»." style="shape=rectangle;whiteSpace=wrap;html=0;align=left;verticalAlign=top;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;rounded=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="940" y="560" width="300" height="220"/>
         </mxCell>
-        <mxCell id="legend" value="Каждая дочерняя запись связана ровно с одним родителем.&#10;У родителя допустимо 0..N дочерних записей. Материалы карточки необязательны." style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
+        <mxCell id="legend" value="В каждой связи дочерняя запись ссылается ровно на одну родительскую запись.&#10;У родителя допустимо 0..N дочерних записей. Материалы карточки необязательны." style="shape=rectangle;whiteSpace=wrap;html=0;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;strokeColor=none;fillColor=none;strokeWidth=1;spacing=4;fontStyle=0;rounded=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="100" y="840" width="1100" height="60"/>
         </mxCell>
       </root>

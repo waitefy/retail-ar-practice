@@ -33,3 +33,7 @@
 16. Аренков, И. А. Использование технологии дополненной и виртуальной реальности при продажах бренда / И. А. Аренков, Г. Т. Бисько // Креативная экономика. — 2024. — Т. 18, № 7. — С. 1593–1608. — DOI 10.18334/ce.18.7.121280. — URL: https://1economic.ru/lib/121280 (дата обращения: 26.10.2026). — Текст : электронный.
 
 17. Голдыбаев, Д. И. Маркетинговые инструменты будущего: ИИ и нейросети, нейромаркетинг и AR/VR технологии / Д. И. Голдыбаев, Т. В. Суворова // Современные технологии управления. — 2023. — № 4 (104). — Номер статьи 10428. — URL: https://sovman.ru/article/10428/ (дата обращения: 26.10.2026). — Текст : электронный.
+
+18. Business Process Model and Notation (BPMN), Version 2.0.2 / Object Management Group. — 2014. — URL: https://www.omg.org/spec/BPMN/2.0.2/ (дата обращения: 30.10.2026). — Текст : электронный.
+
+19. Description of the database normalization basics / Microsoft // Microsoft Learn. — URL: https://learn.microsoft.com/en-us/previous-versions/troubleshoot/microsoft-365/microsoft-365-apps/access/database-normalization-description (дата обращения: 30.10.2026). — Текст : электронный.
