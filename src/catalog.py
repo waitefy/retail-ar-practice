@@ -151,6 +151,16 @@ def get_variant_details(catalog, variant_id):
     })
 
 
+def get_selection_result(catalog, variant_id=None):
+    """Возвращает выбор покупателя; None означает штатное завершение без выбора."""
+    if variant_id is None:
+        return success({"status": "no_selection", "details": None})
+    details = get_variant_details(catalog, variant_id)
+    if not details["ok"]:
+        return details
+    return success({"status": "selected", "details": details["data"]})
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Получить сведения о варианте товара.")
     parser.add_argument("--catalog", type=Path,

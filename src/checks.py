@@ -6,7 +6,7 @@ import subprocess
 import sys
 from tempfile import TemporaryDirectory
 
-from catalog import read_json
+from catalog import get_selection_result, get_variant_details, read_json
 from catalog_checks import (
     check_catalog_and_details,
     check_catalog_structure_and_keys,
@@ -213,6 +213,23 @@ def check_shade_comparison_uses_original():
     assert image == before
 
 
+def check_selection_result():
+    catalog, _ = _fixture()
+    before = deepcopy(catalog)
+    assert get_selection_result(catalog) == {
+        "ok": True, "data": {"status": "no_selection", "details": None}, "error": None}
+    for variant_id in ["V001", "V002", "V003"]:
+        selected = get_selection_result(catalog, variant_id)
+        assert selected["ok"] and selected["error"] is None
+        assert selected["data"]["status"] == "selected"
+        assert selected["data"]["details"] == get_variant_details(catalog, variant_id)["data"]
+        selected["data"]["details"]["product"]["name"] = "changed"
+    for value, code in [("V999", "variant_not_found"), ("", "invalid_variant_id"),
+                        (False, "invalid_variant_id")]:
+        _error(get_selection_result(catalog, value), code)
+    assert catalog == before
+
+
 def main():
     checks = (check_catalog_and_details, check_catalog_structure_and_keys,
               check_catalog_constraints, check_optional_materials_and_empty_catalog,
@@ -223,7 +240,7 @@ def main():
               check_winding_and_start_vertex, check_boundaries_and_horizontal_edges,
               check_triangle_and_concave_polygon, check_empty_and_very_thin_regions,
               check_overlay_reference_and_copies, check_overlay_intensity_and_rounding,
-              check_shade_comparison_uses_original, check_console_example)
+              check_shade_comparison_uses_original, check_console_example, check_selection_result)
     for check in checks:
         check()
         print(f"OK: {check.__name__}")

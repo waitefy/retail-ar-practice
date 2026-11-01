@@ -52,6 +52,15 @@ python src/catalog.py --catalog src/data/catalog.json --variant V003
 отсутствует. Например, `--variant V999` возвращает последнюю ошибку.
 Неверные аргументы командной строки обрабатывает `argparse`, код — `2`.
 
+## Результат предварительного выбора
+
+Функция `get_selection_result(catalog, variant_id=None)` принимает проверенный
+каталог и идентификатор, явно выбранный покупателем. Она возвращает общий
+результат с `data.status = "selected"` и сведениями в `data.details`.
+При `variant_id=None` возвращаются `status = "no_selection"` и `details = None`;
+это успешное завершение (`ok = True`). Неизвестный идентификатор даёт ошибку
+`variant_not_found`, некорректный — `invalid_variant_id`.
+
 ## Наложение оттенка
 
 ```bash
@@ -107,8 +116,8 @@ python -m py_compile src/results.py src/catalog.py src/catalog_checks.py src/geo
 python src/checks.py
 ```
 
-Ожидаемый итог: `Пройдено групп проверок: 20`. [checks.py](checks.py)
+Ожидаемый итог: `Пройдено групп проверок: 21`. [checks.py](checks.py)
 вызывает проверки каталога из [catalog_checks.py](catalog_checks.py)
 и проверяет геометрию, маску, смешивание, округление, неизменность входов
-и консольные запуски из другого каталога. Запускать без `-O`, который
+результат предварительного выбора и консольные запуски из другого каталога. Запускать без `-O`, который
 отключает `assert`.
