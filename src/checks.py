@@ -1,6 +1,7 @@
 """Проверки каталога, геометрии и консольного примера без сторонних библиотек."""
 
 from copy import deepcopy
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -144,13 +145,24 @@ def check_console_example():
     with TemporaryDirectory() as temp:
         result = subprocess.run([sys.executable, str(demo)], cwd=temp, capture_output=True, text=True)
         assert result.returncode == 0 and result.stderr == "", result
-        assert result.stdout == ("Вариант: V001 / DEMO-001 / Розовый\n"
+        assert result.stdout == ("Товар: P001 / Учебная помада «Мягкий цвет»\n"
+                                 "Описание: Демонстрационный товар для сравнения оттенков и "
+                                 "предварительного выбора варианта с приближённым цветовым наложением.\n"
+                                 "Страница товара: https://retail-ar.example/products/soft-color\n"
+                                 "Вариант: V001 / DEMO-001 / Розовый\n"
+                                 "Масса нетто: 3.5 г\n"
+                                 "Материалы:\n"
+                                 "1. M002 / Упаковка полноразмерной помады без обозначения оттенка\n"
+                                 "   https://retail-ar.example/materials/soft-color-full-size.png\n"
+                                 "2. M001 / Общая палитра двух оттенков\n"
+                                 "   https://retail-ar.example/materials/soft-color-palette.png\n"
                                  "Изображение: 3 × 3; вершин контура: 4\n"
                                  "Маска:\n1 1 0\n1 1 0\n0 0 0\n"
                                  "Результат наложения (RGB):\n"
                                  "[145, 95, 110] [145, 95, 110] [100, 100, 100]\n"
                                  "[145, 95, 110] [145, 95, 110] [100, 100, 100]\n"
-                                 "[100, 100, 100] [100, 100, 100] [100, 100, 100]\n")
+                                 "[100, 100, 100] [100, 100, 100] [100, 100, 100]\n"
+                                 "Результат предварительного выбора: no_selection\n")
         for arguments, code in [(["--variant", "V999"], "variant_not_found"),
                                 (["--input", str(Path(temp) / "missing.json")], "invalid_input")]:
             result = subprocess.run([sys.executable, str(demo), *arguments],
@@ -164,6 +176,57 @@ def check_console_example():
                                 cwd=temp, capture_output=True, text=True)
         assert result.returncode == 1 and result.stdout == "", result
         assert "[invalid_image]" in result.stderr and "Traceback" not in result.stderr, result
+
+
+def check_console_selection():
+    demo = Path(__file__).resolve().with_name("overlay_demo.py")
+    with TemporaryDirectory() as temp:
+        for variant_id, rgb, material, weight in [
+            ("V001", "[145, 95, 110]", "M002", "3.5"),
+            ("V002", "[118, 73, 93]", "M002", "3.5"),
+            ("V003", "[145, 95, 110]", "M003", "1.5"),
+        ]:
+            for select in (False, True):
+                arguments = [sys.executable, str(demo), "--variant", variant_id]
+                if select:
+                    arguments.append("--select")
+                run = subprocess.run(arguments, cwd=temp, capture_output=True, text=True)
+                assert run.returncode == 0 and run.stderr == "", run
+                assert f"Вариант: {variant_id} /" in run.stdout, run
+                assert f"Масса нетто: {weight} г\n" in run.stdout, run
+                assert run.stdout.index(f"1. {material} /") < run.stdout.index("2. M001 /"), run
+                assert f"{rgb} {rgb} [100, 100, 100]\n" in run.stdout, run
+                if select:
+                    assert run.stdout.endswith("Результат предварительного выбора: selected\n"
+                                               f"Предварительно выбран: P001 / {variant_id}\n"), run
+                else:
+                    assert run.stdout.endswith("Результат предварительного выбора: no_selection\n"), run
+                    assert "Предварительно выбран:" not in run.stdout, run
+
+        catalog, _ = _fixture()
+        catalog["products"][0]["name"] = "Проверочный товар"
+        catalog["products"][0]["product_id"] = "CUSTOM"
+        for variant in catalog["variants"]:
+            variant["product_id"] = "CUSTOM"
+        catalog["variant_materials"] = []
+        custom = Path(temp) / "catalog.json"
+        custom.write_text(json.dumps(catalog, ensure_ascii=False), encoding="utf-8")
+        run = subprocess.run([sys.executable, str(demo), "--catalog", str(custom), "--select"],
+                             cwd=temp, capture_output=True, text=True)
+        assert run.returncode == 0 and run.stderr == "", run
+        assert "Товар: CUSTOM / Проверочный товар\n" in run.stdout, run
+        assert "Материалы: отсутствуют.\n" in run.stdout, run
+        assert run.stdout.endswith("Предварительно выбран: CUSTOM / V001\n"), run
+        for arguments, code in [(["--variant", "V999", "--select"], "variant_not_found"),
+                                (["--variant", "", "--select"], "invalid_variant_id"),
+                                (["--input", str(Path(temp) / "missing.json"), "--select"], "invalid_input")]:
+            run = subprocess.run([sys.executable, str(demo), *arguments],
+                                 cwd=temp, capture_output=True, text=True)
+            assert run.returncode == 1 and run.stdout == "", run
+            assert f"[{code}]" in run.stderr and "Traceback" not in run.stderr, run
+        run = subprocess.run([sys.executable, str(demo), "--unknown"],
+                             cwd=temp, capture_output=True, text=True)
+        assert run.returncode == 2 and run.stdout == "", run
 
 
 def check_overlay_reference_and_copies():
@@ -240,7 +303,8 @@ def main():
               check_winding_and_start_vertex, check_boundaries_and_horizontal_edges,
               check_triangle_and_concave_polygon, check_empty_and_very_thin_regions,
               check_overlay_reference_and_copies, check_overlay_intensity_and_rounding,
-              check_shade_comparison_uses_original, check_console_example, check_selection_result)
+              check_shade_comparison_uses_original, check_console_example,
+              check_console_selection, check_selection_result)
     for check in checks:
         check()
         print(f"OK: {check.__name__}")

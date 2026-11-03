@@ -1,10 +1,10 @@
-"""Консольный пример построения маски и наложения оттенка из каталога."""
+"""Сведения о варианте, наложение оттенка и предварительный выбор в CLI."""
 
 import argparse
 from pathlib import Path
 import sys
 
-from catalog import get_variant_details, load_catalog, read_json
+from catalog import get_selection_result, get_variant_details, load_catalog, read_json
 from results import failure
 from visualization import apply_shade, build_lip_mask, validate_visualization_input
 
@@ -17,10 +17,13 @@ def _report_error(result):
 
 def main(argv=None):
     directory = Path(__file__).resolve().parent
-    parser = argparse.ArgumentParser(description="Построить маску и наложить выбранный оттенок.")
+    parser = argparse.ArgumentParser(
+        description="Просмотреть вариант с наложением оттенка и задать предварительный выбор.")
     parser.add_argument("--catalog", type=Path, default=directory / "data" / "catalog.json")
     parser.add_argument("--input", type=Path, default=directory / "data" / "mask_example.json")
-    parser.add_argument("--variant", default="V001")
+    parser.add_argument("--variant", default="V001", help="вариант для просмотра (по умолчанию V001)")
+    parser.add_argument("--select", action="store_true",
+                        help="предварительно выбрать просматриваемый вариант; без флага выбора нет")
     args = parser.parse_args(argv)
     catalog = load_catalog(args.catalog)
     if not catalog["ok"]:
@@ -45,8 +48,19 @@ def main(argv=None):
     if not mask["ok"]:
         return _report_error(mask)
     overlay = apply_shade(source["image"], mask["data"], color, source["intensity"])
+    product = details["data"]["product"]
     variant = details["data"]["variant"]
+    print(f"Товар: {product['product_id']} / {product['name']}")
+    print(f"Описание: {product['description']}")
+    print(f"Страница товара: {product['product_url']}")
     print(f"Вариант: {variant['variant_id']} / {variant['sku']} / {shade['name']}")
+    print(f"Масса нетто: {variant['net_weight_g']} г")
+    materials = details["data"]["materials"]
+    print("Материалы:" if materials else "Материалы: отсутствуют.")
+    for link in materials:
+        material = link["material"]
+        print(f"{link['display_order']}. {material['material_id']} / {material['title']}")
+        print(f"   {material['url']}")
     print(f"Изображение: {dimensions['height']} × {dimensions['width']}; "
           f"вершин контура: {dimensions['vertex_count']}")
     print("Маска:")
@@ -55,6 +69,14 @@ def main(argv=None):
     print("Результат наложения (RGB):")
     for row in overlay["data"]:
         print(" ".join(str(pixel) for pixel in row))
+    selection = get_selection_result(catalog["data"], args.variant if args.select else None)
+    if not selection["ok"]:
+        return _report_error(selection)
+    print(f"Результат предварительного выбора: {selection['data']['status']}")
+    if selection["data"]["status"] == "selected":
+        selected = selection["data"]["details"]
+        print(f"Предварительно выбран: {selected['product']['product_id']} / "
+              f"{selected['variant']['variant_id']}")
     return 0
 
 

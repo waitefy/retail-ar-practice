@@ -107,7 +107,7 @@
       <bpmn:incoming>F08</bpmn:incoming>
       <bpmn:outgoing>F09</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="GW_Decision" name="Решение покупателя?">
+    <bpmn:exclusiveGateway id="GW_Decision">
       <bpmn:incoming>F09</bpmn:incoming>
       <bpmn:outgoing>F10</bpmn:outgoing>
       <bpmn:outgoing>F12</bpmn:outgoing>
@@ -142,7 +142,7 @@
         <bpmn:targetRef>Data_Selection</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:serviceTask>
-    <bpmn:exclusiveGateway id="GW_Outcome" name="Предварительный выбор сделан?">
+    <bpmn:exclusiveGateway id="GW_Outcome">
       <bpmn:incoming>F14</bpmn:incoming>
       <bpmn:outgoing>F15</bpmn:outgoing>
       <bpmn:outgoing>F16</bpmn:outgoing>
@@ -184,24 +184,15 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">decision == exit</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="F14" sourceRef="Task_Selection" targetRef="GW_Outcome"/>
-    <bpmn:sequenceFlow id="F15" sourceRef="GW_Outcome" targetRef="End_Selected" name="Да">
+    <bpmn:sequenceFlow id="F15" sourceRef="GW_Outcome" targetRef="End_Selected" name="Вариант выбран">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">decision == select</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="F16" sourceRef="GW_Outcome" targetRef="End_NoSelection" name="Нет">
+    <bpmn:sequenceFlow id="F16" sourceRef="GW_Outcome" targetRef="End_NoSelection" name="Выбора нет">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">decision == exit</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmn:collaboration id="Collaboration_Original">
     <bpmn:participant id="Pool_Original" name="Ознакомление с товаром и предварительный выбор" processRef="Process_Original"/>
-    <bpmn:participant id="Pool_Seller" name="Представитель продавца"/>
-    <bpmn:textAnnotation id="Note_Seller">
-      <bpmn:text>Продавец заранее готовит каталог магазина. Подготовка каталога — за границами текущего процесса.</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="Note_Original">
-      <bpmn:text>Исходный процесс: обычная карточка магазина, без AR.
-Голубые задачи передаются программе; сравнение и решение остаются за покупателем.</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Assoc_SellerNote" sourceRef="Pool_Seller" targetRef="Note_Seller" associationDirection="None"/>
   </bpmn:collaboration>
   <bpmndi:BPMNDiagram id="Diagram_Original" name="Процесс до внедрения AR">
     <bpmndi:BPMNPlane id="Plane_Original" bpmnElement="Collaboration_Original">
@@ -214,19 +205,10 @@
       <bpmndi:BPMNShape id="Lane_Shop_di" bpmnElement="Lane_Shop" isHorizontal="true">
         <dc:Bounds x="90" y="500" width="2140" height="320"/>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Pool_Seller_di" bpmnElement="Pool_Seller" isHorizontal="true">
-        <dc:Bounds x="60" y="20" width="300" height="80"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Note_Seller_di" bpmnElement="Note_Seller">
-        <dc:Bounds x="410" y="20" width="420" height="80"/>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Note_Original_di" bpmnElement="Note_Original">
-        <dc:Bounds x="1010" y="20" width="800" height="80"/>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Start_Card_di" bpmnElement="Start_Card">
-        <dc:Bounds x="180" y="330" width="36" height="36"/>
+        <dc:Bounds x="180" y="332" width="36" height="36"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="110" y="390" width="120" height="45"/>
+          <dc:Bounds x="140" y="373" width="116" height="27"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="GW_Repeat_di" bpmnElement="GW_Repeat">
@@ -244,7 +226,7 @@
       <bpmndi:BPMNShape id="GW_Materials_di" bpmnElement="GW_Materials">
         <dc:Bounds x="925" y="325" width="50" height="50"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="865" y="390" width="170" height="45"/>
+          <dc:Bounds x="870" y="380" width="160" height="27"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Reviews_di" bpmnElement="Task_Reviews">
@@ -255,32 +237,26 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="GW_Decision_di" bpmnElement="GW_Decision">
         <dc:Bounds x="1500" y="325" width="50" height="50"/>
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1555" y="390" width="140" height="40"/>
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Change_di" bpmnElement="Task_Change">
-        <dc:Bounds x="1390" y="200" width="180" height="80"/>
+        <dc:Bounds x="1435" y="200" width="180" height="80"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_Selection_di" bpmnElement="Task_Selection" bioc:fill="#e8f2ff" bioc:stroke="#000000">
         <dc:Bounds x="1680" y="540" width="180" height="80"/>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="GW_Outcome_di" bpmnElement="GW_Outcome">
         <dc:Bounds x="1925" y="555" width="50" height="50"/>
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1820" y="635" width="120" height="45"/>
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="End_Selected_di" bpmnElement="End_Selected">
-        <dc:Bounds x="2062" y="520" width="36" height="36"/>
+        <dc:Bounds x="2062" y="512" width="36" height="36"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2010" y="565" width="140" height="50"/>
+          <dc:Bounds x="2010" y="553" width="140" height="27"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="End_NoSelection_di" bpmnElement="End_NoSelection">
-        <dc:Bounds x="2062" y="680" width="36" height="36"/>
+        <dc:Bounds x="2062" y="612" width="36" height="36"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2010" y="725" width="140" height="45"/>
+          <dc:Bounds x="2010" y="653" width="140" height="27"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Data_Catalog_di" bpmnElement="Data_Catalog">
@@ -304,13 +280,13 @@
       <bpmndi:BPMNShape id="Data_Selection_di" bpmnElement="Data_Selection">
         <dc:Bounds x="1710" y="680" width="36" height="50"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1660" y="735" width="140" height="45"/>
+          <dc:Bounds x="1658" y="735" width="140" height="27"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="F01_di" bpmnElement="F01">
-        <di:waypoint x="216" y="348"/>
-        <di:waypoint x="240" y="348"/>
-        <di:waypoint x="240" y="580"/>
+        <di:waypoint x="216" y="350"/>
+        <di:waypoint x="260" y="350"/>
+        <di:waypoint x="260" y="580"/>
         <di:waypoint x="280" y="580"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F02_di" bpmnElement="F02">
@@ -334,14 +310,14 @@
         <di:waypoint x="950" y="240"/>
         <di:waypoint x="1000" y="240"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="963" y="285" width="30" height="20"/>
+          <dc:Bounds x="951" y="277" width="30" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F07_di" bpmnElement="F07">
         <di:waypoint x="975" y="350"/>
         <di:waypoint x="1240" y="350"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1080" y="326" width="40" height="20"/>
+          <dc:Bounds x="985" y="331" width="40" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F08_di" bpmnElement="F08">
@@ -357,11 +333,11 @@
         <di:waypoint x="1525" y="325"/>
         <di:waypoint x="1525" y="280"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1550" y="285" width="130" height="30"/>
+          <dc:Bounds x="1525" y="295" width="145" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F11_di" bpmnElement="F11">
-        <di:waypoint x="1390" y="240"/>
+        <di:waypoint x="1435" y="240"/>
         <di:waypoint x="1360" y="240"/>
         <di:waypoint x="1360" y="170"/>
         <di:waypoint x="305" y="170"/>
@@ -372,16 +348,15 @@
         <di:waypoint x="1770" y="350"/>
         <di:waypoint x="1770" y="540"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1580" y="325" width="130" height="20"/>
+          <dc:Bounds x="1555" y="331" width="130" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F13_di" bpmnElement="F13">
         <di:waypoint x="1525" y="375"/>
-        <di:waypoint x="1525" y="480"/>
-        <di:waypoint x="1740" y="480"/>
-        <di:waypoint x="1740" y="540"/>
+        <di:waypoint x="1525" y="580"/>
+        <di:waypoint x="1680" y="580"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1535" y="450" width="160" height="20"/>
+          <dc:Bounds x="1532" y="561" width="140" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F14_di" bpmnElement="F14">
@@ -390,25 +365,23 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F15_di" bpmnElement="F15">
         <di:waypoint x="1950" y="555"/>
-        <di:waypoint x="1950" y="538"/>
-        <di:waypoint x="2062" y="538"/>
+        <di:waypoint x="1950" y="530"/>
+        <di:waypoint x="2062" y="530"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1985" y="515" width="30" height="20"/>
+          <dc:Bounds x="1957" y="511" width="100" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="F16_di" bpmnElement="F16">
         <di:waypoint x="1950" y="605"/>
-        <di:waypoint x="1950" y="698"/>
-        <di:waypoint x="2062" y="698"/>
+        <di:waypoint x="1950" y="630"/>
+        <di:waypoint x="2062" y="630"/>
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1960" y="665" width="40" height="20"/>
+          <dc:Bounds x="1957" y="611" width="100" height="14"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="D01_di" bpmnElement="D01">
         <di:waypoint x="455" y="680"/>
-        <di:waypoint x="455" y="650"/>
-        <di:waypoint x="480" y="650"/>
-        <di:waypoint x="480" y="620"/>
+        <di:waypoint x="455" y="620"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="D02_di" bpmnElement="D02">
         <di:waypoint x="520" y="620"/>
@@ -435,20 +408,15 @@
         <di:waypoint x="800" y="390"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="D06_di" bpmnElement="D06">
-        <di:waypoint x="455" y="730"/>
-        <di:waypoint x="455" y="790"/>
-        <di:waypoint x="1830" y="790"/>
+        <di:waypoint x="430" y="705"/>
+        <di:waypoint x="330" y="705"/>
+        <di:waypoint x="330" y="800"/>
+        <di:waypoint x="1830" y="800"/>
         <di:waypoint x="1830" y="620"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="D07_di" bpmnElement="D07">
-        <di:waypoint x="1710" y="620"/>
-        <di:waypoint x="1710" y="650"/>
-        <di:waypoint x="1728" y="650"/>
+        <di:waypoint x="1728" y="620"/>
         <di:waypoint x="1728" y="680"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Assoc_SellerNote_di" bpmnElement="Assoc_SellerNote">
-        <di:waypoint x="360" y="60"/>
-        <di:waypoint x="410" y="60"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
