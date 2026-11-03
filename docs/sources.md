@@ -22,7 +22,7 @@
 
 11. Как россияне выбирают товары для красоты / РОМИР. — 24.10.2025. — URL: https://romir.ru/feed/kak-rossiiane-vybiraiut-tovary-dlia-krasoty (дата обращения: 04.10.2026). — Текст : электронный.
 
-12. Маркетинговое исследование удовлетворенности потребителей парфюмерно-косметической продукции / Л. М. Капустина, Е. А. Андрющенко, В. О. Берин, К. Б. Монзина // Естественно-гуманитарные исследования. — 2025. — № 3 (59). — С. 224–227. — URL: https://academiyadt.ru/wp-content/uploads/egi/egi-59-2.pdf#page=225 (дата обращения: 26.10.2026). — Текст : электронный.
+12. Маркетинговое исследование удовлетворенности потребителей парфюмерно-косметической продукции / Л. М. Капустина, Е. А. Андрющенко, В. О. Берин, К. Б. Монзина // Естественно-гуманитарные исследования. — 2025. — № 3 (59). — С. 224–227. — URL: https://cyberleninka.ru/article/n/marketingovoe-issledovanie-udovletvorennosti-potrebiteley-parfyumerno-kosmeticheskoy-produktsii (дата обращения: 26.10.2026). — Текст : электронный.
 
 13. Enjoy it! Cosmetic try-on apps and augmented reality, the impact of enjoyment, informativeness and ease of use / V. Micheletto, S. Accardi, A. Fici [et al.] // Frontiers in Virtual Reality. — 2025. — Vol. 6. — Article 1515937. — DOI 10.3389/frvir.2025.1515937. — URL: https://www.frontiersin.org/articles/10.3389/frvir.2025.1515937/full (дата обращения: 26.10.2026). — Текст : электронный.
 
