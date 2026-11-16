@@ -10,6 +10,7 @@ venv/
 
 # Java
 *.class
-/build/
-/target/
-/out/
+build/
+target/
+out/
+/src/java/lib/
