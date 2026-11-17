@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="Electron">
-  <diagram id="classes" name="Классы каталога">
+  <diagram id="classes" name="Классы Java-программы">
     <mxGraphModel grid="1" gridSize="10" guides="1" connect="1" page="0" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -505,6 +505,159 @@
           <mxGeometry as="geometry" x="0.736842105263158" y="0" relative="1">
             <mxPoint as="offset" x="22.5" y="0" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="MaskBuilder" value="LipMaskBuilder" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2700" y="100" width="740" height="208" />
+        </mxCell>
+        <mxCell id="MaskBuilder_field_0" value="− height: int {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="44" width="740" height="26" />
+        </mxCell>
+        <mxCell id="MaskBuilder_field_1" value="− width: int {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="70" width="740" height="26" />
+        </mxCell>
+        <mxCell id="MaskBuilder_field_2" value="− polygon: Polygon {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="96" width="740" height="26" />
+        </mxCell>
+        <mxCell id="MaskBuilder_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="122" width="740" height="8" />
+        </mxCell>
+        <mxCell id="MaskBuilder_method_0" value="+ LipMaskBuilder(height: int, width: int,&lt;br&gt;    contour: List&amp;lt;? extends List&amp;lt;? extends Number&amp;gt;&amp;gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="130" width="740" height="52" />
+        </mxCell>
+        <mxCell id="MaskBuilder_method_1" value="+ build(): boolean[][]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="MaskBuilder">
+          <mxGeometry as="geometry" x="0" y="182" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon" value="Polygon" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2700" y="740" width="740" height="364" />
+        </mxCell>
+        <mxCell id="Polygon_field_0" value="− vertices: List&amp;lt;Point&amp;gt; {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="44" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="70" width="740" height="8" />
+        </mxCell>
+        <mxCell id="Polygon_method_0" value="+ Polygon(height: int, width: int,&lt;br&gt;    contour: List&amp;lt;? extends List&amp;lt;? extends Number&amp;gt;&amp;gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="78" width="740" height="52" />
+        </mxCell>
+        <mxCell id="Polygon_method_1" value="+ contains(x: BigDecimal, y: BigDecimal): boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="130" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon_method_2" value="− validateEdges(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="156" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon_method_3" value="− coordinate(value: Number): BigDecimal {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="182" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon_method_4" value="− cross(a: Point, b: Point, c: Point): BigDecimal {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="208" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Polygon_method_5" value="− onSegment(a: Point, b: Point,&lt;br&gt;    point: Point): boolean {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="234" width="740" height="52" />
+        </mxCell>
+        <mxCell id="Polygon_method_6" value="− segmentsIntersect(a: Point, b: Point,&lt;br&gt;    c: Point, d: Point): boolean {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="286" width="740" height="52" />
+        </mxCell>
+        <mxCell id="Polygon_method_7" value="− overlappingEdges(): void {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Polygon">
+          <mxGeometry as="geometry" x="0" y="338" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Point" value="«record, private» Polygon.Point" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="2700" y="1400" width="740" height="182" />
+        </mxCell>
+        <mxCell id="Point_field_0" value="− x: BigDecimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="44" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Point_field_1" value="− y: BigDecimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="70" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Point_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="96" width="740" height="8" />
+        </mxCell>
+        <mxCell id="Point_method_0" value="− Point(x: BigDecimal, y: BigDecimal)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="104" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Point_method_1" value="+ x(): BigDecimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="130" width="740" height="26" />
+        </mxCell>
+        <mxCell id="Point_method_2" value="+ y(): BigDecimal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="Point">
+          <mxGeometry as="geometry" x="0" y="156" width="740" height="26" />
+        </mxCell>
+        <mxCell id="VisualizationError" value="VisualizationException" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1880" y="740" width="600" height="156" />
+        </mxCell>
+        <mxCell id="VisualizationError_field_0" value="− code: String {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="VisualizationError">
+          <mxGeometry as="geometry" x="0" y="44" width="600" height="26" />
+        </mxCell>
+        <mxCell id="VisualizationError_field_1" value="− serialVersionUID: long = 1 {static, readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="VisualizationError">
+          <mxGeometry as="geometry" x="0" y="70" width="600" height="26" />
+        </mxCell>
+        <mxCell id="VisualizationError_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="VisualizationError">
+          <mxGeometry as="geometry" x="0" y="96" width="600" height="8" />
+        </mxCell>
+        <mxCell id="VisualizationError_method_0" value="+ VisualizationException(code: String, message: String)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="VisualizationError">
+          <mxGeometry as="geometry" x="0" y="104" width="600" height="26" />
+        </mxCell>
+        <mxCell id="VisualizationError_method_1" value="+ getCode(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="VisualizationError">
+          <mxGeometry as="geometry" x="0" y="130" width="600" height="26" />
+        </mxCell>
+        <mxCell id="mask_polygon" edge="1" parent="1" source="MaskBuilder" target="Polygon" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=diamond;startFill=1;startSize=14;endArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="mask_polygon_label" value="polygon" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="mask_polygon">
+          <mxGeometry as="geometry" x="0.0" y="0" relative="1">
+            <mxPoint as="offset" x="40.5" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mask_polygon_one" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="mask_polygon">
+          <mxGeometry as="geometry" x="-0.8611111111111112" y="0" relative="1">
+            <mxPoint as="offset" x="14.5" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mask_polygon_many" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="mask_polygon">
+          <mxGeometry as="geometry" x="0.8611111111111112" y="0" relative="1">
+            <mxPoint as="offset" x="14.5" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="polygon_points" edge="1" parent="1" source="Polygon" target="Point" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.5;exitY=1.0;entryX=0.5;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=diamond;startFill=1;startSize=14;endArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="polygon_points_label" value="vertices" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="polygon_points">
+          <mxGeometry as="geometry" x="0.0" y="0" relative="1">
+            <mxPoint as="offset" x="40.0" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="polygon_points_one" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="polygon_points">
+          <mxGeometry as="geometry" x="-0.7972972972972973" y="0" relative="1">
+            <mxPoint as="offset" x="14.5" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="polygon_points_many" value="3..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="polygon_points">
+          <mxGeometry as="geometry" x="0.7972972972972974" y="0" relative="1">
+            <mxPoint as="offset" x="22.5" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="polygon_error" edge="1" parent="1" source="Polygon" target="VisualizationError" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.0;exitY=0.3021978021978022;entryX=1.0;entryY=0.7051282051282052;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;fontFamily=Arial;fontSize=16;fontColor=#000000;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="polygon_error_label" value="throws" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="polygon_error">
+          <mxGeometry as="geometry" x="0.0" y="0" relative="1">
+            <mxPoint as="offset" x="0" y="-14" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mask_error" edge="1" parent="1" source="MaskBuilder" target="VisualizationError" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.0;exitY=0.3125;entryX=1.0;entryY=0.4166666666666667;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;fontFamily=Arial;fontSize=16;fontColor=#000000;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="2600" y="165" />
+              <mxPoint x="2600" y="805" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mask_error_label" value="throws" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Arial;fontSize=16;fontColor=#000000;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="mask_error">
+          <mxGeometry as="geometry" x="-0.023255813953488413" y="0" relative="1">
+            <mxPoint as="offset" x="36.0" y="0" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="visualization_parent" edge="1" parent="1" source="VisualizationError" target="Exception" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.5;exitY=0.0;entryX=0.5;entryY=1.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;endArrow=block;endFill=0;endSize=16;fontFamily=Arial;fontSize=16;fontColor=#000000;">
+          <mxGeometry as="geometry" relative="1" />
         </mxCell>
       </root>
     </mxGraphModel>

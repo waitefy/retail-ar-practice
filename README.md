@@ -37,7 +37,7 @@
 - [Построение маски](models/algo_1.drawio) и [PNG](models/algo_1.png).
 - [Наложение оттенка](models/algo_2.drawio) и [PNG](models/algo_2.png).
 - [Демонстрационный каталог](src/data/catalog.json).
-- [Классы Java-каталога](models/classes.drawio) и [PNG](models/classes.png).
+- [Классы Java-программы](models/classes.drawio) и [PNG](models/classes.png).
 
 ## Программа
 
@@ -49,4 +49,5 @@
 [Запуск и проверка](src/README.md) — Python 3.14.7, стандартная библиотека.
 
 На Java реализованы загрузка и проверка того же каталога и получение сведений
-о варианте. [Сборка, запуск и проверки Java-версии](src/java/README.md).
+о варианте, проверка контура и построение маски по центрам пикселей.
+[Сборка, запуск и проверки Java-версии](src/java/README.md).
