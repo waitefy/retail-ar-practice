@@ -2,14 +2,8 @@ package retailar;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.Strictness;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
 import java.io.IOException;
-import java.io.StringReader;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.net.URI;
@@ -35,54 +29,11 @@ public final class CatalogLoader {
         } catch (IOException error) {
             throw new CatalogException("catalog_read_error", "Не удалось прочитать каталог: " + path);
         }
-        require(!text.startsWith("\ufeff"), "JSON в UTF-8 должен быть без BOM.");
-        try (JsonReader reader = new JsonReader(new StringReader(text))) {
-            reader.setStrictness(Strictness.STRICT);
-            JsonElement value = readValue(reader);
-            require(reader.peek() == JsonToken.END_DOCUMENT, "Лишние данные после JSON.");
-            return createCatalog(object(value));
+        try {
+            return createCatalog(object(StrictJson.read(text)));
         } catch (IOException | IllegalArgumentException | IllegalStateException error) {
             throw invalid("Некорректный JSON каталога: " + error.getMessage());
         }
-    }
-
-    // Gson проверяет синтаксис; имена проверяются до добавления в JsonObject,
-    // чтобы повторное поле не заменило предыдущее без сообщения об ошибке.
-    private JsonElement readValue(JsonReader reader) throws IOException, CatalogException {
-        return switch (reader.peek()) {
-            case BEGIN_OBJECT -> {
-                JsonObject result = new JsonObject();
-                reader.beginObject();
-                while (reader.hasNext()) {
-                    String key = reader.nextName();
-                    require(!result.has(key), "Повтор поля JSON: " + key);
-                    result.add(key, readValue(reader));
-                }
-                reader.endObject();
-                yield result;
-            }
-            case BEGIN_ARRAY -> {
-                JsonArray result = new JsonArray();
-                reader.beginArray();
-                while (reader.hasNext()) result.add(readValue(reader));
-                reader.endArray();
-                yield result;
-            }
-            case STRING -> new JsonPrimitive(reader.nextString());
-            case NUMBER -> {
-                String token = reader.nextString();
-                // Целое 1 и дробное 1.0 различаются, как в Python-каталоге.
-                Number number = token.matches("-?[0-9]+")
-                        ? new BigInteger(token) : new BigDecimal(token);
-                yield new JsonPrimitive(number);
-            }
-            case BOOLEAN -> new JsonPrimitive(reader.nextBoolean());
-            case NULL -> {
-                reader.nextNull();
-                yield JsonNull.INSTANCE;
-            }
-            default -> throw invalid("Ожидается значение JSON.");
-        };
     }
 
     private Catalog createCatalog(JsonObject root) throws CatalogException {
