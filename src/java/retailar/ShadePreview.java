@@ -10,16 +10,20 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-/** Строит изображение с оттенком открытого варианта. */
+/** Показывает оттенок открытого варианта и возвращает результат предварительного выбора. */
 final class ShadePreview extends CatalogOperation<ShadePreview.Result> {
     private final Path inputPath;
+    private final boolean selected;
 
-    ShadePreview(Catalog catalog, Path inputPath) {
+    ShadePreview(Catalog catalog, Path inputPath, boolean selected) {
         super(catalog);
         this.inputPath = inputPath;
+        this.selected = selected;
     }
 
     @Override
@@ -31,7 +35,8 @@ final class ShadePreview extends CatalogOperation<ShadePreview.Result> {
         Shade shade = details.shade();
         int[] color = {shade.red(), shade.green(), shade.blue()};
         boolean[][] mask = new LipMaskBuilder(image.length, image[0].length, contour).build();
-        return new Result(details, mask, applyShade(image, mask, color, intensity));
+        int[][][] preview = applyShade(image, mask, color, intensity);
+        return new Result(details, mask, preview, selectionResult(details));
     }
 
     private JsonObject readInput() throws VisualizationException {
@@ -136,5 +141,12 @@ final class ShadePreview extends CatalogOperation<ShadePreview.Result> {
         return result;
     }
 
-    record Result(VariantDetails details, boolean[][] mask, int[][][] image) {}
+    private Map<String, Object> selectionResult(VariantDetails details) {
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("status", selected ? "selected" : "no_selection");
+        result.put("details", selected ? details : null);
+        return result;
+    }
+
+    record Result(VariantDetails details, boolean[][] mask, int[][][] image, Map<String, Object> selection) {}
 }

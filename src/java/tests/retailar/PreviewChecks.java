@@ -19,7 +19,8 @@ public final class PreviewChecks {
         rounding();
         copiesAndLimits();
         invalidInput(Path.of(args[0]));
-        System.out.println("Пройдено групп проверок наложения: 4");
+        selection(Path.of(args[0]), Path.of(args[1]));
+        System.out.println("Пройдено групп проверок просмотра оттенка и выбора: 5");
     }
 
     private static void reference(Path catalog, Path input) {
@@ -38,6 +39,24 @@ public final class PreviewChecks {
             String last = "[" + unmasked + "," + unmasked + "," + unmasked + "]";
             check(data.get("image").equals(JsonParser.parseString("[" + first + "," + first + "," + last + "]")),
                     "Результат по всем пикселям: " + id);
+        }
+    }
+
+    private static void selection(Path catalog, Path input) {
+        for (String id : List.of("V001", "V002", "V003")) {
+            String[] args = {"--catalog", catalog.toString(), "--input", input.toString(), "--variant", id};
+            JsonObject expected = JsonParser.parseString(run(0, "", args)).getAsJsonObject();
+            JsonObject data = expected.getAsJsonObject("data");
+            JsonObject selection = data.getAsJsonObject("selection");
+            check(selection.get("status").getAsString().equals("no_selection")
+                    && selection.get("details").isJsonNull(), "Просмотр без выбора: " + id);
+
+            String[] selectedArgs = Arrays.copyOf(args, args.length + 1);
+            selectedArgs[args.length] = "--select";
+            JsonObject actual = JsonParser.parseString(run(0, "", selectedArgs)).getAsJsonObject();
+            selection.addProperty("status", "selected");
+            selection.add("details", data.get("details"));
+            check(actual.equals(expected), "Подтверждение выбора меняет только его результат: " + id);
         }
     }
 
@@ -88,12 +107,12 @@ public final class PreviewChecks {
             expect(catalog, input, source("[[[0,0,0]]]", "[[0,0],[1,0],[true,1]]", "1"), "invalid_contour");
             expect(catalog, input, source("[[[0,0,0]]]", "[[0,0],[0.1,0],[0,0.1]]", "1"), "empty_mask");
             run(1, "Ошибка [variant_not_found]", "--catalog", catalog.toString(), "--variant", "V999",
-                    "--input", input.toString());
+                    "--input", input.toString(), "--select");
             run(2, "Нужно значение параметра --input", "--input");
         } finally {
             Files.delete(input);
         }
-        run(1, "Ошибка [invalid_input]", "--catalog", catalog.toString(), "--input", input.toString());
+        run(1, "Ошибка [invalid_input]", "--catalog", catalog.toString(), "--input", input.toString(), "--select");
     }
 
     private static String source(String image, String contour, String intensity) {

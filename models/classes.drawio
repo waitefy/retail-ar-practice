@@ -682,43 +682,49 @@
           <mxGeometry as="geometry" x="0" y="70" width="620" height="26" />
         </mxCell>
         <mxCell id="ShadePreview" value="ShadePreview" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1880" y="120" width="740" height="338" />
+          <mxGeometry as="geometry" x="1880" y="120" width="740" height="390" />
         </mxCell>
         <mxCell id="ShadePreview_field_0" value="− inputPath: Path {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="44" width="740" height="26" />
         </mxCell>
+        <mxCell id="ShadePreview_field_1" value="− selected: boolean {readOnly}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+          <mxGeometry as="geometry" x="0" y="70" width="740" height="26" />
+        </mxCell>
         <mxCell id="ShadePreview_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ShadePreview">
-          <mxGeometry as="geometry" x="0" y="70" width="740" height="8" />
+          <mxGeometry as="geometry" x="0" y="96" width="740" height="8" />
         </mxCell>
-        <mxCell id="ShadePreview_method_0" value="~ ShadePreview(catalog: Catalog, inputPath: Path)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
-          <mxGeometry as="geometry" x="0" y="78" width="740" height="26" />
-        </mxCell>
-        <mxCell id="ShadePreview_method_1" value="# prepareResult(details: VariantDetails): Result" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_0" value="~ ShadePreview(catalog: Catalog, inputPath: Path, selected: boolean)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="104" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_2" value="− readInput(): JsonObject" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_1" value="# prepareResult(details: VariantDetails): Result" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="130" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_3" value="− readImage(value: JsonElement): int[][][] {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_2" value="− readInput(): JsonObject" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="156" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_4" value="− invalidPixels(): VisualizationException {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_3" value="− readImage(value: JsonElement): int[][][] {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="182" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_5" value="− readIntensity(value: JsonElement): BigDecimal {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_4" value="− invalidPixels(): VisualizationException {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="208" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_6" value="− readContour(value: JsonElement): List&amp;lt;List&amp;lt;Number&amp;gt;&amp;gt; {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_5" value="− readIntensity(value: JsonElement): BigDecimal {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="234" width="740" height="26" />
         </mxCell>
-        <mxCell id="ShadePreview_method_7" value="− readNumber(value: JsonElement): Number {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+        <mxCell id="ShadePreview_method_6" value="− readContour(value: JsonElement): List&amp;lt;List&amp;lt;Number&amp;gt;&amp;gt; {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
           <mxGeometry as="geometry" x="0" y="260" width="740" height="26" />
         </mxCell>
+        <mxCell id="ShadePreview_method_7" value="− readNumber(value: JsonElement): Number {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+          <mxGeometry as="geometry" x="0" y="286" width="740" height="26" />
+        </mxCell>
         <mxCell id="ShadePreview_method_8" value="~ applyShade(image: int[][][], mask: boolean[][],&lt;br&gt;    color: int[], intensity: BigDecimal): int[][][] {static}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
-          <mxGeometry as="geometry" x="0" y="286" width="740" height="52" />
+          <mxGeometry as="geometry" x="0" y="312" width="740" height="52" />
+        </mxCell>
+        <mxCell id="ShadePreview_method_9" value="− selectionResult(details: VariantDetails): Map&amp;lt;String, Object&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="ShadePreview">
+          <mxGeometry as="geometry" x="0" y="364" width="740" height="26" />
         </mxCell>
         <mxCell id="PreviewResult" value="«record» ShadePreview.Result" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2700" y="120" width="740" height="234" />
+          <mxGeometry as="geometry" x="2700" y="120" width="740" height="312" />
         </mxCell>
         <mxCell id="PreviewResult_field_0" value="− details: VariantDetails" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
           <mxGeometry as="geometry" x="0" y="44" width="740" height="26" />
@@ -729,20 +735,26 @@
         <mxCell id="PreviewResult_field_2" value="− image: int[][][]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
           <mxGeometry as="geometry" x="0" y="96" width="740" height="26" />
         </mxCell>
-        <mxCell id="PreviewResult_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="PreviewResult">
-          <mxGeometry as="geometry" x="0" y="122" width="740" height="8" />
+        <mxCell id="PreviewResult_field_3" value="− selection: Map&amp;lt;String, Object&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
+          <mxGeometry as="geometry" x="0" y="122" width="740" height="26" />
         </mxCell>
-        <mxCell id="PreviewResult_method_0" value="~ Result(details: VariantDetails, mask: boolean[][], image: int[][][])" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
-          <mxGeometry as="geometry" x="0" y="130" width="740" height="26" />
+        <mxCell id="PreviewResult_divider" value="" style="line;strokeWidth=1;strokeColor=#000000;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="PreviewResult">
+          <mxGeometry as="geometry" x="0" y="148" width="740" height="8" />
+        </mxCell>
+        <mxCell id="PreviewResult_method_0" value="~ Result(details: VariantDetails, mask: boolean[][], image: int[][][],&lt;br&gt;selection: Map&amp;lt;String, Object&amp;gt;)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
+          <mxGeometry as="geometry" x="0" y="156" width="740" height="52" />
         </mxCell>
         <mxCell id="PreviewResult_method_1" value="+ details(): VariantDetails" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
-          <mxGeometry as="geometry" x="0" y="156" width="740" height="26" />
+          <mxGeometry as="geometry" x="0" y="208" width="740" height="26" />
         </mxCell>
         <mxCell id="PreviewResult_method_2" value="+ mask(): boolean[][]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
-          <mxGeometry as="geometry" x="0" y="182" width="740" height="26" />
+          <mxGeometry as="geometry" x="0" y="234" width="740" height="26" />
         </mxCell>
         <mxCell id="PreviewResult_method_3" value="+ image(): int[][][]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
-          <mxGeometry as="geometry" x="0" y="208" width="740" height="26" />
+          <mxGeometry as="geometry" x="0" y="260" width="740" height="26" />
+        </mxCell>
+        <mxCell id="PreviewResult_method_4" value="+ selection(): Map&amp;lt;String, Object&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=10;spacingRight=10;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="PreviewResult">
+          <mxGeometry as="geometry" x="0" y="286" width="740" height="26" />
         </mxCell>
         <mxCell id="StrictJson" value="StrictJson" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=44;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;swimlaneFillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Arial;fontSize=16;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1010" y="780" width="550" height="148" />
@@ -772,14 +784,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="preview_operation" edge="1" parent="1" source="ShadePreview" target="CatalogOperation" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.0;exitY=0.15976331360946747;entryX=0.7567567567567568;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;endArrow=block;endFill=0;endSize=16;">
+        <mxCell id="preview_operation" edge="1" parent="1" source="ShadePreview" target="CatalogOperation" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.0;exitY=0.13846153846153847;entryX=0.7567567567567568;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;endArrow=block;endFill=0;endSize=16;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1420" y="174" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="preview_result" edge="1" parent="1" source="ShadePreview" target="PreviewResult" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=1.0;exitY=0.15976331360946747;entryX=0.0;entryY=0.23076923076923078;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;">
+        <mxCell id="preview_result" edge="1" parent="1" source="ShadePreview" target="PreviewResult" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=1.0;exitY=0.13846153846153847;entryX=0.0;entryY=0.17307692307692307;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
         <mxCell id="loader_strict_json" edge="1" parent="1" source="Loader" target="StrictJson" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=0.5675675675675675;exitY=0.0;entryX=0.4909090909090909;entryY=1.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;">
@@ -792,10 +804,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="preview_mask" edge="1" parent="1" source="ShadePreview" target="MaskBuilder" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=1.0;exitY=0.8284023668639053;entryX=0.5;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;">
+        <mxCell id="preview_mask" edge="1" parent="1" source="ShadePreview" target="MaskBuilder" style="edgeStyle=none;rounded=0;curved=0;orthogonal=1;exitPerimeter=0;entryPerimeter=0;exitX=1.0;exitY=0.8974358974358975;entryX=0.5;entryY=0.0;html=1;strokeColor=#000000;strokeWidth=1.6;startArrow=none;fontFamily=Arial;fontSize=16;fontColor=#000000;dashed=1;dashPattern=6 4;endArrow=open;endSize=12;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="3070" y="400" />
+              <mxPoint x="3070" y="470" />
             </Array>
           </mxGeometry>
         </mxCell>
