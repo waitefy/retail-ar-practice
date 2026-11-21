@@ -45,7 +45,7 @@ public final class Main {
                     }
                 }
             }
-            if (selected && inputPath == null) inputPath = Path.of("src/data/mask_example.json");
+            if (selected && inputPath == null) inputPath = catalogPath.resolveSibling("mask_example.json");
             Catalog catalog = new CatalogLoader().load(catalogPath);
             VariantOperation<?> operation = inputPath == null
                     ? new VariantLookup(catalog) : new ShadePreview(catalog, inputPath, selected);

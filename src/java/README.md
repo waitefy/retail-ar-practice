@@ -2,7 +2,7 @@
 
 Программа показывает сведения о варианте, накладывает его оттенок на
 изображение по контуру губ и возвращает результат предварительного выбора.
-Данные соответствуют [логической модели](../../models/er_logical.drawio),
+Данные соответствуют логической модели `models/er_logical.drawio` в репозитории,
 классы — [UML-диаграмме](../../models/classes.drawio).
 
 Пять сущностей представлены неизменяемыми классами `record`: их поля закрыты,
@@ -25,8 +25,9 @@
 Инструмент сборки — `javac`. Единственная зависимость — **Gson 2.11.0**
 ([проект библиотеки](https://github.com/google/gson)).
 
-Команды выполняются **из корня репозитория**. При первой сборке скачать JAR
-из Maven Central; он хранится локально и не включается в Git:
+Команды сборки выполняются **из корня репозитория или распакованного архива**.
+При первой сборке скачать JAR из Maven Central. Он хранится локально и не
+включается в Git.
 
 ```bash
 java -version
@@ -48,7 +49,8 @@ java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --variant V00
 ```
 
 По умолчанию читается `src/data/catalog.json` относительно текущего каталога,
-выбирается V001. Путь можно задать явно, в том числе абсолютный:
+выбирается V001. Путь можно задать явно, в том числе абсолютный.
+Для распакованного архива указывайте `--catalog src/java/data/catalog.json`.
 
 ```bash
 java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --catalog src/data/catalog.json --variant V003
@@ -99,7 +101,7 @@ java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --variant V99
 java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --variant V002 --input src/data/mask_example.json
 ```
 
-Входной [пример](../data/mask_example.json) содержит `image` (прямоугольную
+Входной `mask_example.json` содержит `image` (прямоугольную
 матрицу целочисленных RGB от 0 до 255), `contour` (вершины `[x, y]`) и
 `intensity` (конечное число от 0 до 1). Цвет берётся из каталога. Для отдельной
 копии проекта с обоими JSON в `src/java/data` укажите
@@ -122,8 +124,14 @@ java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --variant V00
 java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --variant V002 --input src/data/mask_example.json --select
 ```
 
-При запуске с `--select` без `--input` изображение читается из
-`src/data/mask_example.json`.
+При запуске с `--select` без `--input` программа читает `mask_example.json`
+из той же папки, что и указанный каталог товаров. Явный путь
+`--input` имеет приоритет. Из корня распакованного архива:
+
+```bash
+java -cp 'src/java/out:src/java/lib/gson-2.11.0.jar' retailar.Main --catalog src/java/data/catalog.json --variant V002 --select
+```
+
 Без `--input` и `--select` запускается просмотр сведений из каталога.
 
 Внутри маски каждая компонента вычисляется как
@@ -178,7 +186,7 @@ boolean[][] mask = builder.build();
 
 ## Проверки
 
-Из корня репозитория, после получения Gson:
+После получения Gson выполнить из корня репозитория или распакованного архива:
 
 ```bash
 javac -encoding UTF-8 -Xlint:all -cp src/java/lib/gson-2.11.0.jar -d src/java/out src/java/retailar/*.java src/java/tests/retailar/*.java

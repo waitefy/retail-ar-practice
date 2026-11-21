@@ -42,7 +42,7 @@ public final class PreviewChecks {
         }
     }
 
-    private static void selection(Path catalog, Path input) {
+    private static void selection(Path catalog, Path input) throws Exception {
         for (String id : List.of("V001", "V002", "V003")) {
             String[] args = {"--catalog", catalog.toString(), "--input", input.toString(), "--variant", id};
             JsonObject expected = JsonParser.parseString(run(0, "", args)).getAsJsonObject();
@@ -57,6 +57,23 @@ public final class PreviewChecks {
             selection.addProperty("status", "selected");
             selection.add("details", data.get("details"));
             check(actual.equals(expected), "Подтверждение выбора меняет только его результат: " + id);
+        }
+
+        Path directory = Files.createTempDirectory("java-selection-");
+        Path localCatalog = directory.resolve("catalog.json");
+        Path localInput = directory.resolve("mask_example.json");
+        try {
+            Files.copy(catalog, localCatalog);
+            Files.copy(input, localInput);
+            String automatic = run(0, "", "--catalog", localCatalog.toString(), "--select");
+            Files.delete(localInput);
+            run(1, "Ошибка [invalid_input]", "--catalog", localCatalog.toString(), "--select");
+            String explicit = run(0, "", "--catalog", localCatalog.toString(), "--select", "--input", input.toString());
+            check(automatic.equals(explicit), "Изображение берётся рядом с каталогом или по явному пути");
+        } finally {
+            Files.deleteIfExists(localInput);
+            Files.deleteIfExists(localCatalog);
+            Files.delete(directory);
         }
     }
 
