@@ -105,6 +105,7 @@ public final class PreviewChecks {
             }
             expect(catalog, input, source("[[[0,0,0]]]", "null", "1"), "missing_contour");
             expect(catalog, input, source("[[[0,0,0]]]", "[[0,0],[1,0],[true,1]]", "1"), "invalid_contour");
+            expect(catalog, input, source("[[[0,0,0]]]", "[[0,0],[1,0],[0,\"1\"]]", "1"), "invalid_contour");
             expect(catalog, input, source("[[[0,0,0]]]", "[[0,0],[0.1,0],[0,0.1]]", "1"), "empty_mask");
             run(1, "Ошибка [variant_not_found]", "--catalog", catalog.toString(), "--variant", "V999",
                     "--input", input.toString(), "--select");

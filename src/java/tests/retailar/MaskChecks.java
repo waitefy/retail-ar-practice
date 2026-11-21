@@ -35,6 +35,8 @@ public final class MaskChecks {
         for (JsonElement row : source.getAsJsonArray("contour")) {
             List<Number> point = new ArrayList<>();
             for (JsonElement coordinate : row.getAsJsonArray()) {
+                check(coordinate.isJsonPrimitive() && coordinate.getAsJsonPrimitive().isNumber(),
+                        "Координата в примере маски должна быть числом: " + coordinate);
                 String token = coordinate.getAsString();
                 point.add(token.matches("-?(0|[1-9][0-9]*)")
                         ? new BigInteger(token) : Double.valueOf(token));
